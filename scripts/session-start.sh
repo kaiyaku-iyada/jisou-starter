@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Claude Code の SessionStart フックから呼ばれる。標準出力がそのままAIの文脈に入る。
-# 計画の要点・今日が何日目か・台帳の集計と直近の数字・直近の指示書・記憶の目次を出す。
+# 計画の要点・今日が何日目か・README.md に無い項目・台帳の集計と直近の数字・直近の指示書・記憶の目次を出す。
 cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}" || exit 0
 echo "=== 今日: $(date '+%Y-%m-%d %H:%M') ==="
 
@@ -34,6 +34,27 @@ LEFT=$(grep -l '《[^》]' CLAUDE.md README.md LEDGER.md memory/*.md 2>/dev/null
 if [ -n "$LEFT" ]; then
   echo "!!! 未記入の《》が残っている: $LEFT"
   echo "    README.md から決まるものはAIが埋める。決まらないものだけ ops/dayNN.md の「人間への質問」で1問ずつ聞く（「なぜ」は聞けなければ「未取得」でよい）"
+fi
+# README.md に要る項目（見出しか「- 項目」で始まる行。型は templates/README.md）。無ければ CLAUDE.md の既定値で進める
+if [ -f README.md ]; then
+  MISS=""
+  while IFS='|' read -r name pat; do
+    grep -Eq "^(#+ |[-*] )($pat)" README.md || MISS="$MISS『$name』"
+  done <<'EOF'
+目標|目標|目的
+判定|判定
+制約|制約
+作り方の方式|作り方の方式
+指標の定義|指標の定義
+定型行|定型行
+話者とAI開示|話者とAI開示
+数字画像を作る日|数字画像
+判断ルールの単位と定義|単位と定義
+EOF
+  if [ -n "$MISS" ]; then
+    echo "!!! README.md に${MISS}が無い。CLAUDE.md の既定値で進める"
+    echo "    CLAUDE.md の「README.md に無いときの既定値」に従い、使った値を README.md に書き足して、LEDGER.md の「決定事項」に1行残す"
+  fi
 fi
 
 if [ -f README.md ]; then
