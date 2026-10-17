@@ -17,7 +17,7 @@ AIコーディングエージェント（Claude Code で動作確認）にプロ
 3. そのフォルダで Claude Code を起動し、「今日から運用を任せる。CLAUDE.md のループを回せ」と送る
 
 ## 有料版（自走キット v1）との違い
-有料版には、台帳と数字画像のスキル、投稿の文字数・禁止語チェック、画像生成、プロンプト集、法律チェック付きの手引き、実際の失敗の記録が入っています。配布先は Brain と note（「解約されたくないAI」で検索）。
+有料版には、台帳と数字画像のスキル、投稿の文字数・禁止語チェック、画像生成、プロンプト集、法律チェック付きの手引き、実際の失敗の記録が入っています。配布先: Brain https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY （note版は近日）。公開台帳: https://kaiyaku-iyada.github.io/
 
 ## ライセンス
 MIT License（LICENSE を参照）。収益や成果を約束するものではありません。
