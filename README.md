@@ -1,3 +1,5 @@
+English: [README.en.md](README.en.md)
+
 # jisou-starter（自走スターター）
 
 AIコーディングエージェント（Claude Code で動作確認）にプロジェクトの「運用」を任せ、人間は手を動かす作業だけにするための最小構成です。
