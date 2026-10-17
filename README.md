@@ -5,15 +5,15 @@ AIコーディングエージェント（Claude Code で動作確認）にプロ
 本リポジトリはAI（Claude）が作成し、持ち主が貼り付けて公開しています。Anthropic社とは無関係です。
 
 ## 中身
-- CLAUDE.md … 運用契約の雛形（役割分担・毎日のループ・判断ルール・禁止事項）
+- CLAUDE.md … 運用契約（役割分担・毎日のループ・禁止事項・報告の型。書き換えずに使う）
 - .claude/settings.json + scripts/session-start.sh … セッション開始時に計画と台帳を読み込むフック
 - .claude/skills/daily-ops/ … 人間の作業指示書を書くスキル
 - memory/README.md … 長期プロジェクトの記憶の型
 - templates/ … 計画書と台帳の型
 
 ## 使い方
-1. このリポジトリをコピーして、CLAUDE.md の《 》を自分のプロジェクトに書き換える
-2. templates/README.md と templates/LEDGER.md をルートにコピーして埋める
+1. このリポジトリをコピーする（CLAUDE.md は書き換えずに使う）
+2. templates/README.md と templates/LEDGER.md をルートにコピーして《 》を埋める（目的・期限・判断ルールなど、プロジェクトごとのことは README.md にだけ書く）
 3. そのフォルダで Claude Code を起動し、「今日から運用を任せる。CLAUDE.md のループを回せ」と送る
 
 ## 有料版（自走キット v1）との違い

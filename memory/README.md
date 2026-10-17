@@ -8,7 +8,7 @@ name: スラッグ
 description: 1行の要約（あとで「関係あるか」を判断するのに使う）
 type: user | feedback | project | reference
 ---
-本文。project と feedback には「なぜ」と「どう活かす」を欠かさず書く。
+本文。project と feedback には「なぜ」と「どう活かす」を欠かさず書く（「なぜ」が聞けていなければ「未取得」と書く）。
 ```
 
 - user: 人間が誰で、何を好み、何をしないか

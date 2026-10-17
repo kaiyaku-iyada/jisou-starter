@@ -33,7 +33,7 @@ done
 LEFT=$(grep -l '《[^》]' CLAUDE.md README.md LEDGER.md memory/*.md 2>/dev/null | tr '\n' ' ')
 if [ -n "$LEFT" ]; then
   echo "!!! 未記入の《》が残っている: $LEFT"
-  echo "    README.md から決まるものはAIが埋める。決まらないものだけ ops/dayNN.md の先頭で人間に1問ずつ聞く"
+  echo "    README.md から決まるものはAIが埋める。決まらないものだけ ops/dayNN.md の「人間への質問」で1問ずつ聞く（「なぜ」は聞けなければ「未取得」でよい）"
 fi
 
 if [ -f README.md ]; then
