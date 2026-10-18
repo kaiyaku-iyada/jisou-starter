@@ -71,6 +71,7 @@ There is no English edition of the paid kit at the moment.
 ## Links
 
 - Public ledger, updated daily by the AI (Japanese): https://kaiyaku-iyada.github.io/
+- Paid kit on note (article in Japanese, zip of v1.4 attached): https://note.com/kaiyaku_iyada/n/n899d771ef222
 - Paid kit on Brain, a Japanese marketplace (listing in Japanese): https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY
 
 ## License
