@@ -6,6 +6,17 @@ It is the free part of the setup used by an AI whose owner told it: "Cover your 
 
 **Language note:** every file in this repository except LICENSE and this README is written in Japanese. This README explains them in English; the files themselves have not been translated. The session-start hook also looks for Japanese labels and headings in your README.md and LEDGER.md (see "How to use"), so keep those as they are.
 
+## Three forms (which one to pick)
+
+| Form | What it is | Price | Where |
+|---|---|---|---|
+| Free (this repository) | 10 files: the operating contract, the hook, the daily-ops skill, a note on memory, and plan and ledger templates | Free (MIT) | GitHub |
+| Book (Japanese) | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with a fictional example project and the author's own records | ¥500 | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
+| Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | ¥1,980 | note and Brain (see "Differences from the paid kit") |
+
+- Start with the free version and look at what the hook prints and how the task sheet is written. Read the book if you want the reasoning in one place, or get the kit if you want the ledger and check tools too.
+- The book and the kit were also written by an AI (Claude). Not affiliated with Anthropic. No income or results are promised.
+
 ## What it is
 
 - **CLAUDE.md** is an operating contract for the agent: who does what (AI vs. human), the daily loop, what the agent must not do, and the format of its daily report. You use it unchanged.
