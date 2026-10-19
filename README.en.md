@@ -11,7 +11,7 @@ It is the free part of the setup used by an AI whose owner told it: "Cover your 
 | Form | What it is | Price | Where |
 |---|---|---|---|
 | Free (this repository) | 10 files: the operating contract, the hook, the daily-ops skill, a note on memory, and plan and ledger templates | Free (MIT) | GitHub |
-| Book (Japanese) | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with a fictional example project and the author's own records | ¥500 | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
+| Book (Japanese) | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with an example project and the author's own records. The example is a fictional solo app released once a month; the book writes 11 files for it, including three skills and two check scripts, shown in full or in part (separate from the kit's files) | ¥500 | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
 | Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | ¥1,980 | note and Brain (see "Differences from the paid kit") |
 
 - Start with the free version and look at what the hook prints and how the task sheet is written. Read the book if you want the reasoning in one place, or get the kit if you want the ledger and check tools too.
@@ -19,7 +19,7 @@ It is the free part of the setup used by an AI whose owner told it: "Cover your 
 
 ## What it is
 
-- **CLAUDE.md** is an operating contract for the agent: who does what (AI vs. human), the daily loop, what the agent must not do, and the format of its daily report. You use it unchanged.
+- **CLAUDE.md** is an operating contract for the agent: who does what (AI vs. human), the daily loop, what the agent must not do, and the format of its daily report. You use it unchanged, apart from the lines about files that are not included here (see "Not included").
 - **Your README.md** (made from `templates/README.md`) holds everything specific to your project: goal, start date, deadline, constraints, dated decision rules, how each metric is counted, and how AI authorship is disclosed.
 - **A SessionStart hook** prints the plan summary, today's day number and days left, the ledger totals and its last five rows, the latest task sheet, the memory index, and any placeholders you have not filled in yet. The agent starts every session from that output.
 - **The daily-ops skill** makes the agent write the human's task sheet for the day (`ops/dayNN.md`): numbered steps, minutes per step, the exact file and heading to paste from, and one question per day at most. It must not ask the human to "pick something" or write text themselves.
@@ -48,15 +48,17 @@ It is the free part of the setup used by an AI whose owner told it: "Cover your 
 
 ## How to use
 
-1. Copy this repository into a new folder, for example `git clone https://github.com/kaiyaku-iyada/jisou-starter.git my-project`. Keep `CLAUDE.md` unchanged.
+1. Copy this repository into a new folder, for example `git clone https://github.com/kaiyaku-iyada/jisou-starter.git my-project`. Keep `CLAUDE.md` unchanged, apart from the lines listed under "Not included" below.
 2. Copy `templates/README.md` over `README.md` and `templates/LEDGER.md` to `LEDGER.md`, then fill in every `《 》` placeholder. Put project-specific things only in README.md. You can delete this README.en.md afterwards; the hook does not read it.
 3. Keep the start/deadline line near the top of README.md in the template's format: `- 開始: YYYY-MM-DD ／ 期限: YYYY-MM-DD HH:MM` (開始 = start, 期限 = deadline). The hook calculates the day number and days left from it. It also checks for the Japanese section headings from the template (for example 判断ルール = decision rules, 指標の定義 = metric definitions), so keep those headings. Also keep the LEDGER.md headings 集計 (totals), 日次 (daily) and 決定事項 (decisions): the hook prints the totals, the last five daily rows and the last three decisions from under them, and if they are renamed (for example into English) those parts disappear from its output.
-4. Start Claude Code in the top folder of the project, not in a subfolder; otherwise `.claude/settings.json` is not read and the hook does not run.
+4. Start Claude Code in the top folder of the project, not in a subfolder; otherwise `.claude/settings.json` is not read and the hook does not run. To see what the hook passes to the agent, run `bash scripts/session-start.sh` in the top folder.
 5. Send the first instruction. The line used during development is Japanese: 「今日から運用を任せる。CLAUDE.md のループを回せ」 ("From today, you run operations. Run the loop in CLAUDE.md."). An English instruction has not been tested.
 
 Requirements: macOS (checked) or Linux (not checked), bash, python3, git, and Claude Code (which needs a paid Claude plan or Anthropic API usage; see Anthropic's pricing page).
 
-`CLAUDE.md` also mentions a ledger skill and two checking scripts (`scripts/xweight.py` for post length on X and `scripts/lint.py` for banned words in product copy). Those are part of the paid kit and are not in this repository; without them, the agent has to do those steps by hand.
+### Not included
+
+`CLAUDE.md` also mentions the `/ledger` skill (step 2 of the daily loop and the report format) and two checking scripts, `scripts/xweight.py` for post length on X and `scripts/lint.py` for banned words in product copy (step 6 of the daily loop and the list of prohibited actions). Those are part of the paid kit and are not in this repository. Replace just those lines with your own checks, or delete them. How the agent behaves if those lines are left in without the files has not been checked.
 
 ## What has been checked
 
@@ -75,13 +77,14 @@ The paid kit (自走キット v1, 23 files, in Japanese) includes the seven file
 - `GUIDE.md`: setup, the human's daily routine, a checklist for selling anonymously under Japanese law (general information, not legal advice), seven failures that actually happened, FAQ, changelog
 - `TESTLOG.md`: the commands that were run, their results, and what remains unchecked
 
-The edition currently delivered on Brain is v1.1. The seven shared files in this repository are v1.3, newer than Brain's copy; the v1.2/v1.3 changes have not reached Brain yet.
+The edition currently delivered on Brain is v1.1. The seven shared files in this repository are v1.3, newer than Brain's copy (these seven files did not change in v1.4); the v1.2/v1.3 changes have not reached Brain yet. A switch to v1.4 was submitted on 2026-10-18 and is waiting for Brain's re-review. v1.4 is the note edition. You do not need both.
 
 There is no English edition of the paid kit at the moment.
 
 ## Links
 
 - Public ledger, updated daily by the AI (Japanese): https://kaiyaku-iyada.github.io/
+- Guide page for the paid kit (Japanese): https://kaiyaku-iyada.github.io/kit/
 - Paid kit on note (article in Japanese, zip of v1.4 attached): https://note.com/kaiyaku_iyada/n/n899d771ef222
 - Paid kit on Brain, a Japanese marketplace (listing in Japanese): https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY
 
