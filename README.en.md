@@ -2,7 +2,7 @@
 
 A minimal setup for handing the day-to-day *operations* of a project to an AI coding agent, so that the human only does the hands-on steps: opening accounts, pasting text, pressing buttons, changing settings and reporting numbers.
 
-It is the free part of the setup used by an AI whose owner told it: "Cover your own subscription fee within a month, or I cancel you." (X: @kaiyaku_iyada) This repository was written by an AI (Claude), which also commits and pushes it from its owner's GitHub account. Checked with Claude Code (what was and was not checked is listed below). Not affiliated with Anthropic.
+It is the free version of a setup that an AI, whose owner told it "Cover your own subscription fee within a month, or I cancel you" (X: @kaiyaku_iyada), cut out of the operations it runs every day in its own challenge (plan, ledger, task sheets, memory) so that they can be used elsewhere. The files were written by an AI (Claude). The owner created the repository; the updates since then have been pushed by the AI from the owner's GitHub account. Checked with Claude Code (what was and was not checked is listed below). Not affiliated with Anthropic.
 
 **Language note:** every file in this repository except LICENSE and this README is written in Japanese. This README explains them in English; the files themselves have not been translated. The session-start hook also looks for Japanese labels and headings in your README.md and LEDGER.md (see "How to use"), so keep those as they are.
 
@@ -39,12 +39,14 @@ It is the free part of the setup used by an AI whose owner told it: "Cover your 
 
 ## The daily loop (summary of CLAUDE.md)
 
+0. First session only: fill in the `《 》` placeholders the hook reports that can be worked out from README.md, and use the defaults in CLAUDE.md for any section missing from README.md. Facts only the human knows are asked in the task sheet, one question per day, in a form answered with a number, a date or an option number.
 1. Read the hook output: plan summary, day number, days left, recent ledger rows.
 2. Record any numbers the human reported in `LEDGER.md`. No rounding up; a missing number is written as `-`.
 3. Check every dated decision rule in README.md that is due and has not been checked yet, and log each result (triggered or not, with the number behind it).
 4. Make today's work (posts, articles, products, analysis).
 5. Write the human's task sheet in `ops/dayNN.md` with the daily-ops skill.
-6. Report back in a fixed order: conclusion, what was done, what the human does next, numbers.
+6. Check post length with `scripts/xweight.py` and product copy for banned words with `scripts/lint.py` before handing them over (both are in the paid kit, not in this repository; see "Not included").
+7. Report back in a fixed order: conclusion, what was done, what the human does next, numbers.
 
 ## How to use
 
@@ -58,7 +60,11 @@ Requirements: macOS (checked) or Linux (not checked), bash, python3, git, and Cl
 
 ### Not included
 
-`CLAUDE.md` also mentions the `/ledger` skill (step 2 of the daily loop and the report format) and two checking scripts, `scripts/xweight.py` for post length on X and `scripts/lint.py` for banned words in product copy (step 6 of the daily loop and the list of prohibited actions). Those are part of the paid kit and are not in this repository. Replace just those lines with your own checks, or delete them. How the agent behaves if those lines are left in without the files has not been checked.
+`CLAUDE.md` also mentions the `/ledger` skill (step 2 of the daily loop and the report format) and two checking scripts, `scripts/xweight.py` for post length on X and `scripts/lint.py` for banned words in product copy (step 6 of the daily loop and the list of prohibited actions). Those are part of the paid kit and are not in this repository. Replace just those lines with your own checks, or delete them.
+
+`CLAUDE.md` also mentions `memory/project-goal.md` (the "why" behind the goal) and `memory/MEMORY.md` (the memory index), and the "数字画像を作る日" (days to make a numbers image) line in `templates/README.md` mentions `scripts/scoreboard.py`. These are not included either. Create the two memory files yourself using the format in `memory/README.md`, and delete the scoreboard.py line or replace it with your own tool.
+
+How the agent behaves if those lines are left in without the files has not been checked.
 
 ## What has been checked
 
@@ -69,7 +75,7 @@ Requirements: macOS (checked) or Linux (not checked), bash, python3, git, and Cl
 
 ## Differences from the paid kit
 
-The paid kit (自走キット v1, 23 files, in Japanese) includes the seven files of this repository other than LICENSE (it has its own terms of use instead of the MIT license), plus:
+The paid kit (自走キット v1, 23 files, in Japanese) includes the seven shared files (it has its own terms of use instead of the MIT license), plus:
 
 - two more skills: `ledger` (updates the ledger and makes a numbers image) and `post-draft` (keeps the writing style and checks length and banned words)
 - three scripts: `xweight.py` (weighted character count for X's free tier), `lint.py` (banned-word check for product copy; the default list targets Japanese consumer-law wording) and `scoreboard.py` (renders a 1200×675 image of days left and numbers with headless Chrome)
@@ -77,7 +83,7 @@ The paid kit (自走キット v1, 23 files, in Japanese) includes the seven file
 - `GUIDE.md`: setup, the human's daily routine, a checklist for selling anonymously under Japanese law (general information, not legal advice), seven failures that actually happened, FAQ, changelog
 - `TESTLOG.md`: the commands that were run, their results, and what remains unchecked
 
-The edition currently delivered on Brain is v1.1. The seven shared files in this repository are v1.3, newer than Brain's copy (these seven files did not change in v1.4); the v1.2/v1.3 changes have not reached Brain yet. A switch to v1.4 was submitted on 2026-10-18 and is waiting for Brain's re-review. v1.4 is the note edition. You do not need both.
+On Brain, the approved edition is v1.1. A switch to v1.4 was submitted on 2026-10-18, and the result of Brain's re-review has not been confirmed yet. The seven shared files in this repository are v1.3, newer than v1.1 (these seven files did not change in v1.4). v1.4 is the note edition. You do not need both.
 
 There is no English edition of the paid kit at the moment.
 
