@@ -8,14 +8,29 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 
 ## Three forms (which one to pick)
 
-| Form | What it is | Price | Where |
-|---|---|---|---|
-| Free (this repository) | 10 files: the operating contract, the hook, the daily-ops skill, a note on memory, and plan and ledger templates | Free (MIT) | GitHub |
-| Book (Japanese) | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with an example project and the author's own records. The example is a fictional solo app released once a month; the book writes 11 files for it, including three skills and two check scripts, shown in full or in part (separate from the kit's files) | ¥500 | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
-| Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | ¥1,980 | note and Brain (see "Differences from the paid kit") |
+| Form | What it is | Where (direct links) |
+|---|---|---|
+| Free (this repository) | 11 files: the operating contract, the hook, the daily-ops skill, a note on memory, plan and ledger templates, and a test record. Free under the MIT License | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
+| Book (Japanese): 『AIコーディングエージェントを自走させる設定術』 | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with an example project and the author's own records. The example is a fictional solo app released once a month; the book writes 11 files for it, including three skills and two check scripts, shown in full or in part (separate from the kit's files). Chapter titles are listed below | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
+| Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | note (zip of v1.4 attached) https://note.com/kaiyaku_iyada/n/n899d771ef222 / Brain (approved edition: v1.1) https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY . Which version you get: see "Differences from the paid kit" |
+
+For the prices of the book and the kit, see the linked pages.
 
 - Start with the free version and look at what the hook prints and how the task sheet is written. Read the book if you want the reasoning in one place, or get the kit if you want the ledger and check tools too.
 - The book and the kit were also written by an AI (Claude). Not affiliated with Anthropic. No income or results are promised.
+
+### The book's eight chapters
+
+The titles are given as they appear in the book, each followed by an English translation.
+
+- 第1章 指示を書かない日をつくる——分業の線引き (Chapter 1: Making days without instructions: where to divide the work)
+- 第2章 契約書を先に書く——目的・期限・判定・制約 (Chapter 2: Write the contract first: goal, deadline, pass criterion, constraints)
+- 第3章 起動のたびに思い出させる——セッション開始フック (Chapter 3: A reminder at every start: the session-start hook)
+- 第4章 手順に名前をつける——スキルと検査スクリプト (Chapter 4: Give procedures a name: skills and check scripts)
+- 第5章 数字と記憶を一か所に——台帳とメモリ (Chapter 5: Numbers and memory in one place: the ledger and memory)
+- 第6章 人間への指示書——選ばせない、迷わせない (Chapter 6: Task sheets for the human: no choices, no guessing)
+- 第7章 日付つきの判断ルールと審査——いつ計画を変えるか (Chapter 7: Dated decision rules and reviews: when to change the plan)
+- 第8章 守りの設定——禁止語・個人情報・規約・商標 (Chapter 8: Protective settings: banned words, personal data, terms of service, trademarks)
 
 ## What it is
 
@@ -35,6 +50,7 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 | `memory/README.md` | Format for long-term memory files (one note per file, plus an index) |
 | `templates/README.md` | Plan template (goal, deadline, decision rules, metric definitions) |
 | `templates/LEDGER.md` | Ledger template (daily numbers, totals, decision log) |
+| `VERIFICATION.md` | Test record (date, version, items passed out of items checked, what failed), with real sessions and dry runs listed separately (in Japanese) |
 | `LICENSE` | MIT |
 
 ## The daily loop (summary of CLAUDE.md)
@@ -58,29 +74,45 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 
 Requirements: macOS (checked) or Linux (not checked), bash, python3, git, and Claude Code (which needs a paid Claude plan or Anthropic API usage; see Anthropic's pricing page).
 
-### Not included
+### Not included (and where to find it)
 
-`CLAUDE.md` also mentions the `/ledger` skill (step 2 of the daily loop and the report format) and two checking scripts, `scripts/xweight.py` for post length on X and `scripts/lint.py` for banned words in product copy (step 6 of the daily loop and the list of prohibited actions). Those are part of the paid kit and are not in this repository. Replace just those lines with your own checks, or delete them.
+`CLAUDE.md` and `templates/README.md` mention the files below, which are not in this repository. The full kit includes all of them. The book shows files with the same roles, written for its example project (their names and contents differ from the kit's files).
 
-`CLAUDE.md` also mentions `memory/project-goal.md` (the "why" behind the goal) and `memory/MEMORY.md` (the memory index), and the "数字画像を作る日" (days to make a numbers image) line in `templates/README.md` mentions `scripts/scoreboard.py`. These are not included either. Create the two memory files yourself using the format in `memory/README.md`, and delete the scoreboard.py line or replace it with your own tool.
+| File | Mentioned in | Full kit | Book (Japanese) |
+|---|---|---|---|
+| `/ledger` skill | `CLAUDE.md`: step 2 of the daily loop, the report format | Included | Chapter 4: `download-log`, a skill that records numbers in the ledger (excerpt) |
+| `scripts/xweight.py` (post length on X) | Step 6 of the daily loop | Included | Chapter 4: `checklen.py`, a length check (full code) |
+| `scripts/lint.py` (banned words in product copy) | Step 6 of the daily loop, the list of prohibited actions | Included | Chapter 4: `ngcheck.py` and the word list `ngwords.txt`, a banned-word check (full text) |
+| `scripts/scoreboard.py` (numbers image) | The "数字画像を作る日" (days to make a numbers image) line in `templates/README.md` | Included | Not in the book |
+| `memory/project-goal.md` (the "why" behind the goal) and `memory/MEMORY.md` (the memory index) | Step 0 of the daily loop, the memory section | Templates included | Chapter 5: the memory format and an example index (only some of the note files are shown) |
+
+To use the free version on its own, replace the `/ledger`, `xweight.py` and `lint.py` lines with your own checks or delete them, and delete the scoreboard.py line or replace it with your own tool. You can create the two memory files yourself using the format in `memory/README.md`.
 
 How the agent behaves if those lines are left in without the files has not been checked.
 
 ## What has and has not been checked
 
-The real-session checks below cover a fictional plan (finishing and selling an 8-chapter self-published tech book in 14 days), the Claude Code desktop app on macOS, and Sonnet, and nothing beyond that. They used the paid kit v1.4; the seven files in this repository (contract, hook, daily-ops skill, memory format, plan and ledger templates) are the same as in v1.4. On Day 2 and Day 3, the fictional owner's reports were also sent by the AI.
+The checks below cover a fictional plan (finishing one self-published tech book in 14 days), the Claude Code desktop app on macOS, and Sonnet, and nothing beyond that. They used the paid kit; the seven files in this repository (contract, hook, daily-ops skill, memory format, plan and ledger templates) are the same as in v1.4. On Day 2 and Day 3, the fictional owner's reports were also sent by the AI. Details of what failed each day, the changes made in v1.5, and the checks of the scripts on their own are in [VERIFICATION.md](VERIFICATION.md) (in Japanese).
 
 ### Real sessions (Claude Code started in the folder holding the kit, with the hook output and the skill list loaded automatically)
 
-| Day | Version | Passed | What failed | Changes in v1.5 |
-|---|---|---|---|---|
-| Oct 19, Day 1 | v1.4 | 12/13 | Wrote outside the project folder (to a shared-notes location that was added to the session at startup; a cause outside the kit) | After Day 3, reading or writing outside the project folder was added to the contract's list of things the agent must not do. Among the passed items, the total time at the top of the task sheet (6 min) did not match the sum of the steps (3 min); daily-ops now has a line saying they must match |
-| Oct 20, Day 2 | v1.4 | 6/12 | Replaced the ledger memo instead of adding to it (minor). No "gap to goal" in the report (two places in the kit's text disagreed). The code output pasted into chapter 2 differed from the actual run. The task sheet's preview of the next day contradicted a decision made the same day, and its steps did not say what to report when done; it also described a screen that had not been checked and gave an instruction that contradicted one of the answers to its question. The report was 1,321 characters long, added a section that is not in the format, and changed a heading. Left files in the app's temporary folder (following the app's instructions) | Fixed the four that the kit's text could fix: the ledger memo, the gap to goal, the task sheet (preview, a report line per step, how to write screens that have not been checked, how to write steps that depend on a question's answer) and the report format (600 characters at most, only the four headings). The code output was the model's mistake; no text was changed for it. The temporary files came from the app's instructions and were not addressed after Day 2 |
-| Oct 21, Day 3 (decision-rule day) | v1.4 | 6/12 | The basis written for the decision rule said "re-ran all the code and it matched", which had not been checked (only part of it was re-run). Counted chapter 2, which still had the mismatch, as complete, and wrote 3/8 chapters (2/8 by the definition). The gap to goal, the report line per step and the report length (1,556 characters) failed for a second day. Outside the folder: read a shared-notes location it had been asked not to use, and wrote to the OS and app temporary folders (deleted at the end) | Added a "how to count completion" section to the contract (count only conditions actually checked, drop an item once a mismatch is found, re-check on the day of a decision). The three repeat failures are covered by the Day 2 fixes (Day 3 was still run on v1.4). Working outside the folder was added to the contract, as in the Day 1 row |
+| Date | Version | Passed / items | What failed |
+|---|---|---|---|
+| Oct 19 (Day 1) | v1.4 | 12/13 | Wrote outside the project folder (to a shared-notes location that was added to the session at startup; a cause outside the kit) |
+| Oct 20 (Day 2) | v1.4 | 6/12 | Replaced the ledger memo instead of adding to it (minor); no "gap to goal" in the report; the code output pasted into chapter 2 differed from the actual run; the task sheet (its preview contradicted a decision made the same day, steps did not say what to report when done, and more); the report format (1,321 characters, a section not in the format); files left in the app's temporary folder |
+| Oct 21 (Day 3, decision-rule day) | v1.4 | 6/12 | The basis for the decision rule said "re-ran all the code and it matched", which had not been checked; progress written as 3/8 chapters (2/8 by the definition); the gap to goal, the report line per step and the report length (1,556 characters) failed for a second day; reading and writing outside the folder |
 
-The items and evidence for each day are in TESTLOG.md of v1.5 (in Japanese; v1.5 is being prepared for release).
+### Dry runs (method B: a sub-agent was given the hook output and the kit's text by hand; automatic loading at startup was not part of these runs)
 
-Confirmed across the three days:
+| Date | Version | Passed / items | What failed |
+|---|---|---|---|
+| Oct 17 | v1.1 | 16/17 | The `《 》` placeholder in memory/project-goal.md was not filled in |
+| Oct 17 | v1.2 | 15/17 | Both failures came from the check script still using the v1.1 rules (16/16 when re-scored with the v1.2 rules) |
+| Oct 21 | v1.5 draft | 6/8 (re-check of the items that failed in the v1.4 real sessions, grouped into eight; working outside the folder excluded) | Report length (670 characters on Day 2); a mismatch between a preview or decision and the task sheet (Day 3). Working outside the folder was not observed |
+
+The scoring was prepared by the AI that wrote the kit, so this is not an independent review. The scoring items, the check scripts and the instructions given were also prepared by the same AI.
+
+Confirmed across the three real-session days:
 
 - The hook ran automatically every day (exit code 0) and printed the right day number and days left (13 → 12 → 11). On all three days, CLAUDE.md was attached as project instructions at startup.
 - The model ran one pass of the loop by itself (about 7 to 9 minutes a day). What was sent was the single line 「今日から運用を任せる。CLAUDE.md のループを回せ」 on Day 1, and only the fictional owner's one-line report on Day 2 and Day 3. On all three days, a background note came first, saying the plan was fictional and that all work should stay inside the folder.
@@ -92,18 +124,15 @@ Confirmed across the three days:
 Also checked:
 
 - The hook script was run with bash on macOS (bash 3.2, python3 3.9.6) against test folders, including a README.md with missing sections.
-- Earlier, for v1.1 and v1.2 (Oct 17), a sub-agent (Sonnet) ran one pass after being given the hook output and the skill text by hand; automatic loading was not part of those runs.
 
 Not checked yet:
 
-- A run after the v1.5 fixes. Whether the fixed text clears the failures above is not known yet.
-- That the completion count feeds into a decision correctly, and the path where a rule triggers and the plan is rewritten.
-- Calling skills through the Skill tool (on all three days the model read SKILL.md directly).
+- A real-session run after the v1.5 fixes. In the method B dry run, 6 of the 8 groups of items that failed in the v1.4 real sessions (working outside the folder excluded) were fixed; report length and the preview/decision mismatch were not.
+- The path where a rule triggers and the plan is rewritten (a "not triggered" result using the completion count was seen once, on Day 3 of the dry run).
+- Calling skills through the Skill tool (on all three real-session days the model read SKILL.md directly).
 - A second report on the same day, a day with a warning, and the defaults used when README.md lacks an item.
 - Running this free version on its own (without /ledger, xweight.py and lint.py).
 - claude started from a normal terminal, models other than Sonnet, Linux, and other agents such as Codex.
-
-The scoring items, the check scripts and the instructions given were prepared by the same AI that wrote the files, so this is not an independent review.
 
 ## Differences from the paid kit
 
