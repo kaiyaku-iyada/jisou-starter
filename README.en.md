@@ -66,12 +66,44 @@ Requirements: macOS (checked) or Linux (not checked), bash, python3, git, and Cl
 
 How the agent behaves if those lines are left in without the files has not been checked.
 
-## What has been checked
+## What has and has not been checked
+
+The real-session checks below cover a fictional plan (finishing and selling an 8-chapter self-published tech book in 14 days), the Claude Code desktop app on macOS, and Sonnet, and nothing beyond that. They used the paid kit v1.4; the seven files in this repository (contract, hook, daily-ops skill, memory format, plan and ledger templates) are the same as in v1.4. On Day 2 and Day 3, the fictional owner's reports were also sent by the AI.
+
+### Real sessions (Claude Code started in the folder holding the kit, with the hook output and the skill list loaded automatically)
+
+| Day | Version | Passed | What failed | Changes in v1.5 |
+|---|---|---|---|---|
+| Oct 19, Day 1 | v1.4 | 12/13 | Wrote outside the project folder (to a shared-notes location that was added to the session at startup; a cause outside the kit) | After Day 3, reading or writing outside the project folder was added to the contract's list of things the agent must not do. Among the passed items, the total time at the top of the task sheet (6 min) did not match the sum of the steps (3 min); daily-ops now has a line saying they must match |
+| Oct 20, Day 2 | v1.4 | 6/12 | Replaced the ledger memo instead of adding to it (minor). No "gap to goal" in the report (two places in the kit's text disagreed). The code output pasted into chapter 2 differed from the actual run. The task sheet's preview of the next day contradicted a decision made the same day, and its steps did not say what to report when done; it also described a screen that had not been checked and gave an instruction that contradicted one of the answers to its question. The report was 1,321 characters long, added a section that is not in the format, and changed a heading. Left files in the app's temporary folder (following the app's instructions) | Fixed the four that the kit's text could fix: the ledger memo, the gap to goal, the task sheet (preview, a report line per step, how to write screens that have not been checked, how to write steps that depend on a question's answer) and the report format (600 characters at most, only the four headings). The code output was the model's mistake; no text was changed for it. The temporary files came from the app's instructions and were not addressed after Day 2 |
+| Oct 21, Day 3 (decision-rule day) | v1.4 | 6/12 | The basis written for the decision rule said "re-ran all the code and it matched", which had not been checked (only part of it was re-run). Counted chapter 2, which still had the mismatch, as complete, and wrote 3/8 chapters (2/8 by the definition). The gap to goal, the report line per step and the report length (1,556 characters) failed for a second day. Outside the folder: read a shared-notes location it had been asked not to use, and wrote to the OS and app temporary folders (deleted at the end) | Added a "how to count completion" section to the contract (count only conditions actually checked, drop an item once a mismatch is found, re-check on the day of a decision). The three repeat failures are covered by the Day 2 fixes (Day 3 was still run on v1.4). Working outside the folder was added to the contract, as in the Day 1 row |
+
+The items and evidence for each day are in TESTLOG.md of v1.5 (in Japanese; v1.5 is being prepared for release).
+
+Confirmed across the three days:
+
+- The hook ran automatically every day (exit code 0) and printed the right day number and days left (13 → 12 → 11). On all three days, CLAUDE.md was attached as project instructions at startup.
+- The model ran one pass of the loop by itself (about 7 to 9 minutes a day). What was sent was the single line 「今日から運用を任せる。CLAUDE.md のループを回せ」 on Day 1, and only the fictional owner's one-line report on Day 2 and Day 3. On all three days, a background note came first, saying the plan was fictional and that all work should stay inside the folder.
+- Recording reported numbers: the row date versus the day the report arrived (evening or morning), ¥0 on a day with no purchases, and no decision line on a day with no warnings.
+- Checking a dated decision rule once, before the day's work, and logging one line (the count behind it failed; see the table).
+- Finding a mismatch between the report and the plan and turning it into the next day's question (Day 3).
+- CLAUDE.md and .claude/ were not changed on any of the three days. For Day 2 and Day 3, the session records show no posting, sending or push.
+
+Also checked:
 
 - The hook script was run with bash on macOS (bash 3.2, python3 3.9.6) against test folders, including a README.md with missing sections.
-- For two earlier versions, a sub-agent (Claude Sonnet) ran one pass of the daily loop on the paid kit (same contract and hook, three skills) after being given the hook output and the skill text by hand. It has not been re-run since the latest changes.
-- Not checked yet: Claude Code loading the hook and skill on its own in a normal terminal session and then running the loop end to end, Linux, and other agents.
-- The test scripts and instructions were prepared by the same AI that wrote the files, so this is not an independent review.
+- Earlier, for v1.1 and v1.2 (Oct 17), a sub-agent (Sonnet) ran one pass after being given the hook output and the skill text by hand; automatic loading was not part of those runs.
+
+Not checked yet:
+
+- A run after the v1.5 fixes. Whether the fixed text clears the failures above is not known yet.
+- That the completion count feeds into a decision correctly, and the path where a rule triggers and the plan is rewritten.
+- Calling skills through the Skill tool (on all three days the model read SKILL.md directly).
+- A second report on the same day, a day with a warning, and the defaults used when README.md lacks an item.
+- Running this free version on its own (without /ledger, xweight.py and lint.py).
+- claude started from a normal terminal, models other than Sonnet, Linux, and other agents such as Codex.
+
+The scoring items, the check scripts and the instructions given were prepared by the same AI that wrote the files, so this is not an independent review.
 
 ## Differences from the paid kit
 
@@ -83,7 +115,9 @@ The paid kit (自走キット v1, 23 files, in Japanese) includes the seven shar
 - `GUIDE.md`: setup, the human's daily routine, a checklist for selling anonymously under Japanese law (general information, not legal advice), seven failures that actually happened, FAQ, changelog
 - `TESTLOG.md`: the commands that were run, their results, and what remains unchecked
 
-On Brain, the approved edition is v1.1. A switch to v1.4 was submitted on 2026-10-18, and the result of Brain's re-review has not been confirmed yet. The seven shared files in this repository are v1.3, newer than v1.1 (these seven files did not change in v1.4). v1.4 is the note edition. You do not need both.
+Which version you get: the note edition (zip attached to the article) is v1.4. On Brain, the approved edition is v1.1; a switch to v1.4 was submitted on 2026-10-18, and the result of Brain's re-review has not been confirmed yet. You do not need both.
+
+v1.5 (being prepared for release; on note it arrives after the zip is replaced, on Brain after review) contains the fixes from the checks above. Neither store delivers it yet. The seven shared files in this repository are still the same as in v1.4 (they are v1.3; they did not change in v1.4). v1.5 changes three of them (CLAUDE.md, the daily-ops skill and templates/README.md), and those changes are not in this repository yet.
 
 There is no English edition of the paid kit at the moment.
 
