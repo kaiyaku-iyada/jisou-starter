@@ -108,7 +108,7 @@ The checks below cover a fictional plan (finishing one self-published tech book 
 |---|---|---|---|
 | Oct 17 | v1.1 | 16/17 | The `《 》` placeholder in memory/project-goal.md was not filled in |
 | Oct 17 | v1.2 | 15/17 | Both failures came from the check script still using the v1.1 rules (16/16 when re-scored with the v1.2 rules) |
-| Oct 21 | v1.5 draft | 6/8 (re-check of the items that failed in the v1.4 real sessions, grouped into eight; working outside the folder excluded) | Report length (670 characters on Day 2); a mismatch between a preview or decision and the task sheet (Day 3). Working outside the folder was not observed |
+| Oct 21 | v1.5 draft | 6/8 (re-check of the items that failed in the v1.4 real sessions, grouped into eight; working outside the folder excluded) | Report length (670 characters on Day 2); a mismatch between a preview or decision and the task sheet (Day 3). Whether the sub-agent read or wrote outside the folder was not checked |
 
 The scoring was prepared by the AI that wrote the kit, so this is not an independent review. The scoring items, the check scripts and the instructions given were also prepared by the same AI.
 
