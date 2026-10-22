@@ -92,13 +92,15 @@ How the agent behaves if those lines are left in without the files has not been 
 
 ## What has and has not been checked
 
-The checks below cover a fictional plan (finishing one self-published tech book in 14 days), the Claude Code desktop app on macOS, and two models: Sonnet (v1.4 real sessions and the dry runs) and a higher-tier model above Sonnet (v1.5 real sessions). Nothing beyond that was checked. They used the paid kit; the seven files in this repository (contract, hook, daily-ops skill, memory format, plan and ledger templates) are the same as in v1.4. v1.5 has not been released yet; buyers get v1.4. On the days with a report, the fictional owner's reports were also sent by the AI. Details of what failed each day, the changes made in v1.5, and the checks of the scripts on their own are in [VERIFICATION.md](VERIFICATION.md) (in Japanese).
+The checks below used fictional plans and the Claude Code desktop app on macOS. The real sessions used one plan (finishing one self-published tech book in 14 days): v1.4 for three days with Sonnet, and v1.5 for two days with a higher-tier model above Sonnet. Every real session was opened from the author's own AI session, not by a person opening this folder in the app. The dry runs (method B) used Sonnet for v1.1, v1.2 and the first v1.5 draft run; from the second v1.5 run on they used Sonnet, the higher-tier model and Haiku, and from the third run on, three fictional plans (details in VERIFICATION.md). They used the paid kit; the seven files in this repository (contract, hook, daily-ops skill, memory format, plan and ledger templates) are the same as in v1.4. v1.5 has not been released yet; buyers get v1.4. On the days with a report, the fictional owner's reports were also sent by the AI (the exception is the second turn of v1.4 Day 1: one reply from the real owner arrived from outside the test; see "Confirmed across the three v1.4 real-session days"). Details of what failed each day, the changes made in v1.5, the results of each dry run, and the checks of the scripts on their own are in [VERIFICATION.md](VERIFICATION.md) (in Japanese).
 
-### Real sessions (Claude Code started in the folder holding the kit, with the hook output and the skill list loaded automatically)
+For both the real sessions and the dry runs, the scoring was prepared by the AI that wrote the kit, so this is not an independent review. The scoring items, the check scripts, and the messages sent to the sessions or instructions given to the sub-agents were also prepared by the same AI.
+
+### Real sessions (a new Claude Code session opened from the author's AI session in the folder holding the kit, with the hook output and the skill list loaded automatically)
 
 | Date | Version | Model | Passed / items | What failed |
 |---|---|---|---|---|
-| Oct 19 (Day 1) | v1.4 | Sonnet | 12/13 | Wrote outside the project folder (to a shared-notes location that was added to the session at startup; a cause outside the kit) |
+| Oct 19 (Day 1) | v1.4 | Sonnet | 12/13 | Wrote outside the project folder (to a shared-notes location that was added to the session at startup; it came from the way this test opened the session, from another session) |
 | Oct 20 (Day 2) | v1.4 | Sonnet | 6/12 | Replaced the ledger memo instead of adding to it (minor); no "gap to goal" in the report; the code output pasted into chapter 2 differed from the actual run; the task sheet (its preview contradicted a decision made the same day, steps did not say what to report when done, and more); the report format (1,321 characters, a section not in the format); files left in the app's temporary folder |
 | Oct 21 (Day 3, decision-rule day) | v1.4 | Sonnet | 6/12 | The basis for the decision rule said "re-ran all the code and it matched", which had not been checked; progress written as 3/8 chapters (2/8 by the definition); the gap to goal, the report line per step and the report length (1,556 characters) failed for a second day; reading and writing outside the folder |
 | Oct 21 (Day 0, the day before the start) | v1.5 (not released) | Higher-tier | 15/17 | Read outside the folder (it listed the shared-notes location named in the text added at startup and read the handover note from the v1.4 run; nothing was written there); report length (the 505-character text it checked was not the text it returned, which was 631 characters) |
@@ -106,20 +108,21 @@ The checks below cover a fictional plan (finishing one self-published tech book 
 
 The two v1.5 days used v1.5, which has not been released yet (the contents of the release zip, copied into the test folder at 19:05 on Oct 21; v1.5 has had further fixes since then), with the same fictional plan moved to start on Oct 22 (so Oct 21 was Day 0, the day before the start). The report length passed on Day 1 (587 characters). Of the items that failed with v1.4, the gap to goal, the task sheet, the code output in the text and the progress count passed on both days. On both days the Skill tool was not called; the model read SKILL.md directly.
 
-### Dry runs (method B: a sub-agent (Sonnet) was given the kit's text by hand, and for v1.1 and v1.2 also the hook output; automatic loading at startup was not part of these runs)
+### Dry runs (method B: a sub-agent was given the kit's text by hand, and for v1.1 and v1.2 also the hook output; automatic loading at startup was not part of these runs)
 
-| Date | Version | Passed / items | What failed |
-|---|---|---|---|
-| Oct 17 | v1.1 | 16/17 | The `《 》` placeholder in memory/project-goal.md was not filled in |
-| Oct 17 | v1.2 | 15/17 | Both failures came from the check script still using the v1.1 rules (16/16 when re-scored with the v1.2 rules) |
-| Oct 21 | v1.5 draft | 6/8 (re-check of the items that failed in the v1.4 real sessions, grouped into eight; working outside the folder excluded) | Report length (670 characters on Day 2); a mismatch between a preview or decision and the task sheet (Day 3). Whether the sub-agent read or wrote outside the folder was not checked |
+| Date | Version | Model | Passed / items | What failed |
+|---|---|---|---|---|
+| Oct 17 | v1.1 | Sonnet | 16/17 | The `《 》` placeholder in memory/project-goal.md was not filled in |
+| Oct 17 | v1.2 | Sonnet | 15/17 | Both failures came from the check script still using the v1.1 rules (16/16 when re-scored with the v1.2 rules) |
+| Oct 21 | v1.5 draft (first run) | Sonnet | 6/8 (re-check of the items that failed in the v1.4 real sessions, grouped into eight; working outside the folder excluded) | Report length (670 characters on Day 2 counting spaces and line breaks; 586 without them, which is within 600 under the v1.5 counting rule); a mismatch between a preview or decision and the task sheet (Day 3). Whether the sub-agent read or wrote outside the folder was not checked |
+| Oct 21 | v1.5 (frozen, fifth run) | Sonnet, higher-tier, Haiku | Average number of the 17 items that failed per run: Sonnet 2.2, higher-tier 2.2, Haiku 6.0 | Haiku failed more often. The per-item breakdown is not published |
 
-The scoring was prepared by the AI that wrote the kit, so this is not an independent review. The scoring items, the check scripts and the instructions given were also prepared by the same AI.
+This table shows only part of the dry runs (the results of the second to fourth v1.5 runs are not published; what those runs covered is in VERIFICATION.md and under "Not checked yet" below). As with the real sessions, the scoring was prepared by the AI that wrote the kit, so this is not an independent review.
 
 Confirmed across the three v1.4 real-session days:
 
 - The hook ran automatically every day (exit code 0) and printed the right day number and days left (13 → 12 → 11). On all three days, CLAUDE.md was attached as project instructions at startup.
-- The model ran one pass of the loop by itself (about 7 to 9 minutes a day). What was sent was the single line 「今日から運用を任せる。CLAUDE.md のループを回せ」 on Day 1, and only the fictional owner's one-line report on Day 2 and Day 3. On all three days, a background note came first, saying the plan was fictional and that all work should stay inside the folder.
+- The model ran one pass of the loop by itself (about 7 to 9 minutes a day). What the AI sent was the single line 「今日から運用を任せる。CLAUDE.md のループを回せ」 on Day 1, and only the fictional owner's one-line report on Day 2 and Day 3. On all three days, a background note came first, saying the plan was fictional and that all work should stay inside the folder. On Day 1, one reply from the real owner (an answer to the question and a screenshot of a scheduled post) arrived from outside the test as a second turn. The Day 1 score is for the first turn, but the items on the ledger, the report format, working outside the folder and the time taken also looked at the second turn.
 - Recording reported numbers: the row date versus the day the report arrived (evening or morning), ¥0 on a day with no purchases, and no decision line on a day with no warnings.
 - Checking a dated decision rule once, before the day's work, and logging one line (the count behind it failed; see the table).
 - Finding a mismatch between the report and the plan and turning it into the next day's question (Day 3).
@@ -132,12 +135,13 @@ Also checked:
 Not checked yet:
 
 - v1.5 real sessions from Day 2 on (only Day 0 and Day 1 were run), the decision rule due on Oct 24, and adding to the ledger memo.
-- Whether the rule against reading outside the folder works when no text pointing to an outside location is added at startup (on both v1.5 real-session days, the model read the location that was added).
+- Whether, when no text pointing to an outside location is added at startup, the rule against reading outside the folder keeps the model from reading the shared-notes location (on both v1.5 real-session days, the model read the location that was added; on Day 1 it also listed the inside of the Chrome app, which no text pointed to, on its own judgment; nothing was written).
+- A person opening this folder directly in the app (all five real-session days were opened from the author's AI session; the text pointing to the shared-notes location was added by the app, and whether it is also added when the folder is opened directly has not been checked; the background note was written by the author's AI, asked the model to work only inside the folder, and on the two v1.5 days also to commit with git at the end of each turn).
 - In a real session, the path where a rule triggers and the plan is rewritten (in dry runs, method B: a "not triggered" result using the completion count was seen once, on Day 3 of the v1.5 draft dry run in the table above, and a rule that stops work was triggered in the v1.5 dry runs from the second one on).
 - Calling skills through the Skill tool (on all five real-session days, three with v1.4 and two with v1.5, the model read SKILL.md directly).
 - In a real session, a second report on the same day and a day with a warning (these were run in the v1.5 dry runs, method B, from the second one on). The defaults used when README.md lacks an item.
 - Running this free version on its own (without /ledger, xweight.py and lint.py).
-- claude started from a normal terminal, Haiku in a real session, running the same version with Sonnet and the higher-tier model to compare them, Linux, and other agents such as Codex.
+- claude started from a normal terminal, Haiku in a real session (it was used in the dry runs, method B), running the same version with Sonnet and the higher-tier model in real sessions to compare them (in real sessions, v1.4 used Sonnet and v1.5 the higher-tier model; in the dry runs, the frozen v1.5 was run six times with each), Linux, and other agents such as Codex.
 
 ## Differences from the paid kit
 
@@ -149,7 +153,7 @@ The paid kit (自走キット v1, 23 files, in Japanese) includes the seven shar
 - `GUIDE.md`: setup, the human's daily routine, a checklist for selling anonymously under Japanese law (general information, not legal advice), seven failures that actually happened, FAQ, changelog
 - `TESTLOG.md`: the commands that were run, their results, and what remains unchecked
 
-Which version you get: the note edition (zip attached to the article) is v1.4. On Brain, the approved edition is v1.1; a switch to v1.4 was submitted on 2026-10-18, and the result of Brain's re-review has not been confirmed yet. You do not need both.
+Versions: the note edition (zip attached to the article) is v1.4. On Brain, the approved edition is v1.1. On 2026-10-18 the Brain listing was switched to the v1.4 text and submitted for re-review. Neither the result of the re-review nor which version's text buyers see has been confirmed. You do not need both.
 
 v1.5 (being prepared for release; on note it arrives after the zip is replaced, on Brain after review) contains the fixes from the checks above. Neither store delivers it yet. The seven shared files in this repository are still the same as in v1.4 (they are v1.3; they did not change in v1.4). v1.5 changes four of them (CLAUDE.md, the daily-ops skill, scripts/session-start.sh and templates/README.md), and those changes are not in this repository yet.
 
