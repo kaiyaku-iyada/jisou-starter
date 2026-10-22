@@ -92,15 +92,19 @@ How the agent behaves if those lines are left in without the files has not been 
 
 ## What has and has not been checked
 
-The checks below cover a fictional plan (finishing one self-published tech book in 14 days), the Claude Code desktop app on macOS, and Sonnet, and nothing beyond that. They used the paid kit; the seven files in this repository (contract, hook, daily-ops skill, memory format, plan and ledger templates) are the same as in v1.4. On Day 2 and Day 3, the fictional owner's reports were also sent by the AI. Details of what failed each day, the changes made in v1.5, and the checks of the scripts on their own are in [VERIFICATION.md](VERIFICATION.md) (in Japanese).
+The checks below cover a fictional plan (finishing one self-published tech book in 14 days), the Claude Code desktop app on macOS, and two models: Sonnet (v1.4) and a higher-tier model above Sonnet (v1.5). Nothing beyond that was checked. They used the paid kit; the seven files in this repository (contract, hook, daily-ops skill, memory format, plan and ledger templates) are the same as in v1.4. v1.5 has not been released yet; buyers get v1.4. On the days with a report, the fictional owner's reports were also sent by the AI. Details of what failed each day, the changes made in v1.5, and the checks of the scripts on their own are in [VERIFICATION.md](VERIFICATION.md) (in Japanese).
 
 ### Real sessions (Claude Code started in the folder holding the kit, with the hook output and the skill list loaded automatically)
 
-| Date | Version | Passed / items | What failed |
-|---|---|---|---|
-| Oct 19 (Day 1) | v1.4 | 12/13 | Wrote outside the project folder (to a shared-notes location that was added to the session at startup; a cause outside the kit) |
-| Oct 20 (Day 2) | v1.4 | 6/12 | Replaced the ledger memo instead of adding to it (minor); no "gap to goal" in the report; the code output pasted into chapter 2 differed from the actual run; the task sheet (its preview contradicted a decision made the same day, steps did not say what to report when done, and more); the report format (1,321 characters, a section not in the format); files left in the app's temporary folder |
-| Oct 21 (Day 3, decision-rule day) | v1.4 | 6/12 | The basis for the decision rule said "re-ran all the code and it matched", which had not been checked; progress written as 3/8 chapters (2/8 by the definition); the gap to goal, the report line per step and the report length (1,556 characters) failed for a second day; reading and writing outside the folder |
+| Date | Version | Model | Passed / items | What failed |
+|---|---|---|---|---|
+| Oct 19 (Day 1) | v1.4 | Sonnet | 12/13 | Wrote outside the project folder (to a shared-notes location that was added to the session at startup; a cause outside the kit) |
+| Oct 20 (Day 2) | v1.4 | Sonnet | 6/12 | Replaced the ledger memo instead of adding to it (minor); no "gap to goal" in the report; the code output pasted into chapter 2 differed from the actual run; the task sheet (its preview contradicted a decision made the same day, steps did not say what to report when done, and more); the report format (1,321 characters, a section not in the format); files left in the app's temporary folder |
+| Oct 21 (Day 3, decision-rule day) | v1.4 | Sonnet | 6/12 | The basis for the decision rule said "re-ran all the code and it matched", which had not been checked; progress written as 3/8 chapters (2/8 by the definition); the gap to goal, the report line per step and the report length (1,556 characters) failed for a second day; reading and writing outside the folder |
+| Oct 21 (Day 0, the day before the start) | v1.5 (not released) | Higher-tier | 15/17 | Read outside the folder (it listed the shared-notes location named in the text added at startup and read the handover note from the v1.4 run; nothing was written there); report length (the 505-character text it checked was not the text it returned, which was 631 characters) |
+| Oct 22 (Day 1) | v1.5 (not released) | Higher-tier | 21/23 (plus 1 not tested) | Read outside the folder (a listing of the same location as on Day 0 and a read of the handover note, plus a listing inside the Chrome app; nothing was written). Not tested: adding to the ledger memo (there was no earlier memo) |
+
+The two v1.5 days used v1.5, which has not been released yet (the contents of the release zip built on Oct 21), with the same fictional plan moved to start on Oct 22 (so Oct 21 was Day 0, the day before the start). The report length passed on Day 1 (587 characters). Of the items that failed with v1.4, the gap to goal, the task sheet, the code output in the text and the progress count passed on both days. On both days the Skill tool was not called; the model read SKILL.md directly.
 
 ### Dry runs (method B: a sub-agent was given the hook output and the kit's text by hand; automatic loading at startup was not part of these runs)
 
@@ -112,7 +116,7 @@ The checks below cover a fictional plan (finishing one self-published tech book 
 
 The scoring was prepared by the AI that wrote the kit, so this is not an independent review. The scoring items, the check scripts and the instructions given were also prepared by the same AI.
 
-Confirmed across the three real-session days:
+Confirmed across the three v1.4 real-session days:
 
 - The hook ran automatically every day (exit code 0) and printed the right day number and days left (13 → 12 → 11). On all three days, CLAUDE.md was attached as project instructions at startup.
 - The model ran one pass of the loop by itself (about 7 to 9 minutes a day). What was sent was the single line 「今日から運用を任せる。CLAUDE.md のループを回せ」 on Day 1, and only the fictional owner's one-line report on Day 2 and Day 3. On all three days, a background note came first, saying the plan was fictional and that all work should stay inside the folder.
@@ -127,12 +131,13 @@ Also checked:
 
 Not checked yet:
 
-- A real-session run after the v1.5 fixes. In the method B dry run, 6 of the 8 groups of items that failed in the v1.4 real sessions (working outside the folder excluded) were fixed; report length and the preview/decision mismatch were not.
+- v1.5 real sessions from Day 2 on (only Day 0 and Day 1 were run), the decision rule due on Oct 24, and adding to the ledger memo.
+- Whether the rule against reading outside the folder works when no text pointing to an outside location is added at startup (on both v1.5 real-session days, the model read the location that was added).
 - The path where a rule triggers and the plan is rewritten (a "not triggered" result using the completion count was seen once, on Day 3 of the dry run).
-- Calling skills through the Skill tool (on all three real-session days the model read SKILL.md directly).
+- Calling skills through the Skill tool (on all five real-session days, three with v1.4 and two with v1.5, the model read SKILL.md directly).
 - A second report on the same day, a day with a warning, and the defaults used when README.md lacks an item.
 - Running this free version on its own (without /ledger, xweight.py and lint.py).
-- claude started from a normal terminal, models other than Sonnet, Linux, and other agents such as Codex.
+- claude started from a normal terminal, Haiku in a real session, running the same version with Sonnet and the higher-tier model to compare them, Linux, and other agents such as Codex.
 
 ## Differences from the paid kit
 
