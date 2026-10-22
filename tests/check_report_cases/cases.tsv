@@ -1,0 +1,13 @@
+# scripts/check_report.py の回帰テスト（キット v1.5 の下書きの29件から9件）。1行1件で「OK<TAB>ファイル」か「NG<TAB>ファイル<TAB>種類,種類」。回し方は README.md
+# 通る例
+OK	reports/ok_02_600字ちょうど.md
+OK	reports/ok_04_前日比の減りと0.md
+OK	reports/ok_06_URLの中のhome.md
+# 止まる例
+NG	reports/ng_01_601字.md	長さ
+NG	reports/ng_03_型に無い見出し.md	型に無い見出し
+NG	reports/ng_04_見出しの順.md	見出し
+NG	reports/ng_10_ユーザー名入りのパス.md	パス
+NG	reports/ng_12_一時フォルダの名前に入るユーザー名.md	パス
+# 3回目の予行（架空の計画 p3、Sonnet）でモデルが返した4通目の写し。前日比に投稿数と imp の値が無い
+NG	reports/dry17_p3_s_4.md	前日比
