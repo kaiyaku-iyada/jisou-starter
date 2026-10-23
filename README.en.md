@@ -12,7 +12,7 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 |---|---|---|
 | Free (this repository) | 11 files: the operating contract, the hook, the daily-ops skill, a note on memory, plan and ledger templates, and a test record. Free under the MIT License | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
 | Book (Japanese): 『AIコーディングエージェントを自走させる設定術』 | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with an example project and the author's own records. The example is a fictional solo app released once a month; the book writes 11 files for it, including three skills and two check scripts, shown in full or in part (separate from the kit's files). Chapter titles are listed below | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
-| Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | note (zip of v1.4 attached) https://note.com/kaiyaku_iyada/n/n899d771ef222 / Brain (approved edition: v1.1) https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY . Which version you get: see "Differences from the paid kit" |
+| Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | note (zip of v1.4 attached) https://note.com/kaiyaku_iyada/n/n899d771ef222 / Brain (v1.4) https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY . Which version you get: see "Differences from the paid kit" |
 
 For the prices of the book and the kit, see the linked pages.
 
@@ -153,7 +153,7 @@ The paid kit (自走キット v1, 23 files, in Japanese) includes the seven shar
 - `GUIDE.md`: setup, the human's daily routine, a checklist for selling anonymously under Japanese law (general information, not legal advice), seven failures that actually happened, FAQ, changelog
 - `TESTLOG.md`: the commands that were run, their results, and what remains unchecked
 
-Versions: the note edition (zip attached to the article) is v1.4. On Brain, the approved edition is v1.1. On 2026-10-18 the Brain listing was switched to the v1.4 text and submitted for re-review. Neither the result of the re-review nor which version's text buyers see has been confirmed. You do not need both.
+Versions: both the note edition (zip attached to the article) and the Brain edition (all files in the article text) are v1.4. The Brain listing was switched to the v1.4 text on 2026-10-18 and submitted for re-review; its approval was confirmed on 2026-10-23. You do not need both.
 
 v1.5 (being prepared for release; on note it arrives after the zip is replaced, on Brain after review) contains the fixes from the checks above. Neither store delivers it yet. The seven shared files in this repository are still the same as in v1.4 (they are v1.3; they did not change in v1.4). v1.5 changes four of them (CLAUDE.md, the daily-ops skill, scripts/session-start.sh and templates/README.md), and those changes are not in this repository yet.
 

@@ -12,7 +12,7 @@ AIコーディングエージェント（Claude Code で動作確認）にプロ
 |---|---|---|
 | 無料版（このリポジトリ） | 11ファイル。運用契約・フック・daily-ops スキル・記憶の書き方・計画書と台帳の型・検証の記録など。MIT License で無料 | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
 | 本『AIコーディングエージェントを自走させる設定術』 | 毎回の指示を設定に置き換える考え方を1冊にしたもの。7つの置き場所（契約書・フック・スキル・検査スクリプト・台帳・記憶・指示書）を、例題と著者の挑戦の記録で説明。例題は架空の「月1リリースの個人アプリ」で、スキル3本・検査スクリプト2本を含む11ファイルを書き下ろし、本文に全文か抜粋を掲載（一式のファイルとは別）。章の題は下 | Kindle https://www.amazon.co.jp/dp/B0HNCWSHSM |
-| 一式（自走キット v1） | 23ファイル。無料版と同じ中身の7ファイルに、台帳と数字画像のスキル、投稿の文字数と禁止語のチェック、プロンプト5本、法律チェックと失敗の記録つきの手引き、動作確認の記録など | note（v1.4 の zip を添付）https://note.com/kaiyaku_iyada/n/n899d771ef222 ／ Brain（承認済みは v1.1）https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY 。届く版は下の「有料版との違い」 |
+| 一式（自走キット v1） | 23ファイル。無料版と同じ中身の7ファイルに、台帳と数字画像のスキル、投稿の文字数と禁止語のチェック、プロンプト5本、法律チェックと失敗の記録つきの手引き、動作確認の記録など | note（v1.4 の zip を添付）https://note.com/kaiyaku_iyada/n/n899d771ef222 ／ Brain（v1.4）https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY 。届く版は下の「有料版との違い」 |
 
 本と一式の価格は、リンク先のページで確かめてください。
 
@@ -106,7 +106,7 @@ v1.4 の実物の3日を通して確かめられたこと
 ## 有料版（自走キット v1）との違い
 有料版には、台帳と数字画像のスキル、投稿の文字数・禁止語チェック、画像生成、プロンプト集、法律チェック付きの手引き、実際の失敗の記録が入っています。
 
-版: note 版（記事に zip を添付）は v1.4 https://note.com/kaiyaku_iyada/n/n899d771ef222 ／ Brain https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY で承認済みなのは v1.1 です。Brain は 2026-10-18 に v1.4 の文へ差し替えて再審査を申請しました。再審査の結果も、買う人の画面にどちらの版の文が出るかも、確かめていません。両方は要りません。
+版: note 版（記事に zip を添付）https://note.com/kaiyaku_iyada/n/n899d771ef222 も Brain 版（記事本文に全文）https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY も v1.4 です。Brain は 2026-10-18 に v1.4 の文へ差し替えて再審査を申請し、承認されたことを 2026-10-23 に確かめました。両方は要りません。
 
 v1.5（公開準備中。note は zip の差し替え後、Brain は再審査後に反映）は、上の検証を受けて直した版で、まだどちらからも届きません。このリポジトリの7ファイルも v1.4 と同じ中身のままで、v1.5 で変わる4つ（CLAUDE.md・daily-ops・scripts/session-start.sh・templates/README.md）はまだ入れていません。
 
