@@ -6,32 +6,6 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 
 **Language note:** every file in this repository except LICENSE and this README is written in Japanese. This README explains them in English; the files themselves have not been translated. The session-start hook also looks for Japanese labels and headings in your README.md and LEDGER.md (see "How to use"), so keep those as they are.
 
-## Three forms (which one to pick)
-
-| Form | What it is | Where (direct links) |
-|---|---|---|
-| Free (this repository) | 11 files: the operating contract, the hook, the daily-ops skill, a note on memory, plan and ledger templates, and a test record. Free under the MIT License | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
-| Book (Japanese): 『AIコーディングエージェントを自走させる設定術』 | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with an example project and the author's own records. The example is a fictional solo app released once a month; the book writes 11 files for it, including three skills and two check scripts, shown in full or in part (separate from the kit's files). Chapter titles are listed below | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
-| Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | note (zip of v1.4 attached) https://note.com/kaiyaku_iyada/n/n899d771ef222 / Brain (v1.4) https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY . Which version you get: see "Differences from the paid kit" |
-
-For the prices of the book and the kit, see the linked pages.
-
-- Start with the free version and look at what the hook prints and how the task sheet is written. Read the book if you want the reasoning in one place, or get the kit if you want the ledger and check tools too.
-- The book and the kit were also written by an AI (Claude). Not affiliated with Anthropic. No income or results are promised.
-
-### The book's eight chapters
-
-The titles are given as they appear in the book, each followed by an English translation.
-
-- 第1章 指示を書かない日をつくる——分業の線引き (Chapter 1: Making days without instructions: where to divide the work)
-- 第2章 契約書を先に書く——目的・期限・判定・制約 (Chapter 2: Write the contract first: goal, deadline, pass criterion, constraints)
-- 第3章 起動のたびに思い出させる——セッション開始フック (Chapter 3: A reminder at every start: the session-start hook)
-- 第4章 手順に名前をつける——スキルと検査スクリプト (Chapter 4: Give procedures a name: skills and check scripts)
-- 第5章 数字と記憶を一か所に——台帳とメモリ (Chapter 5: Numbers and memory in one place: the ledger and memory)
-- 第6章 人間への指示書——選ばせない、迷わせない (Chapter 6: Task sheets for the human: no choices, no guessing)
-- 第7章 日付つきの判断ルールと審査——いつ計画を変えるか (Chapter 7: Dated decision rules and reviews: when to change the plan)
-- 第8章 守りの設定——禁止語・個人情報・規約・商標 (Chapter 8: Protective settings: banned words, personal data, terms of service, trademarks)
-
 ## What it is
 
 - **CLAUDE.md** is an operating contract for the agent: who does what (AI vs. human), the daily loop, what the agent must not do, and the format of its daily report. You use it unchanged, apart from the lines about files that are not included here (see "Not included").
@@ -89,6 +63,32 @@ Requirements: macOS (checked) or Linux (not checked), bash, python3, git, and Cl
 To use the free version on its own, replace the `/ledger`, `xweight.py` and `lint.py` lines with your own checks or delete them, and delete the scoreboard.py line or replace it with your own tool. You can create the two memory files yourself using the format in `memory/README.md`.
 
 How the agent behaves if those lines are left in without the files has not been checked.
+
+## Three forms (which one to pick)
+
+| Form | What it is | Where (direct links) |
+|---|---|---|
+| Free (this repository) | 11 files: the operating contract, the hook, the daily-ops skill, a note on memory, plan and ledger templates, and a test record. Free under the MIT License | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
+| Book (Japanese): 『AIコーディングエージェントを自走させる設定術』 | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with an example project and the author's own records. The example is a fictional solo app released once a month; the book writes 11 files for it, including three skills and two check scripts, shown in full or in part (separate from the kit's files). Chapter titles are listed below | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
+| Full kit (自走キット v1, Japanese) | 23 files: the same seven shared files as this repository, plus the ledger and numbers-image skill, length and banned-word checks for posts, five prompts, a guide with legal checks and a record of failures, and a test log | note (zip of v1.4 attached) https://note.com/kaiyaku_iyada/n/n899d771ef222 / Brain (v1.4) https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY . Which version you get: see "Differences from the paid kit" |
+
+For the prices of the book and the kit, see the linked pages.
+
+- Start with the free version and look at what the hook prints and how the task sheet is written. Read the book if you want the reasoning in one place, or get the kit if you want the ledger and check tools too.
+- The book and the kit were also written by an AI (Claude). Not affiliated with Anthropic. No income or results are promised.
+
+### The book's eight chapters
+
+The titles are given as they appear in the book, each followed by an English translation.
+
+- 第1章 指示を書かない日をつくる——分業の線引き (Chapter 1: Making days without instructions: where to divide the work)
+- 第2章 契約書を先に書く——目的・期限・判定・制約 (Chapter 2: Write the contract first: goal, deadline, pass criterion, constraints)
+- 第3章 起動のたびに思い出させる——セッション開始フック (Chapter 3: A reminder at every start: the session-start hook)
+- 第4章 手順に名前をつける——スキルと検査スクリプト (Chapter 4: Give procedures a name: skills and check scripts)
+- 第5章 数字と記憶を一か所に——台帳とメモリ (Chapter 5: Numbers and memory in one place: the ledger and memory)
+- 第6章 人間への指示書——選ばせない、迷わせない (Chapter 6: Task sheets for the human: no choices, no guessing)
+- 第7章 日付つきの判断ルールと審査——いつ計画を変えるか (Chapter 7: Dated decision rules and reviews: when to change the plan)
+- 第8章 守りの設定——禁止語・個人情報・規約・商標 (Chapter 8: Protective settings: banned words, personal data, terms of service, trademarks)
 
 ## What has and has not been checked
 
