@@ -25,6 +25,8 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 | `templates/README.md` | Plan template (goal, deadline, decision rules, metric definitions) |
 | `templates/LEDGER.md` | Ledger template (daily numbers, totals, decision log) |
 | `VERIFICATION.md` | Test record (date, version, items passed out of items checked, what failed), with real sessions and dry runs listed separately (in Japanese) |
+| `scripts/check_report.py` | Checks the report to the human: length (600 characters or fewer, not counting spaces and line breaks), the four headings, the day-over-day line, and full paths. The same as in kit v1.5 apart from the first comment line. The CLAUDE.md in this repository has no 600-character limit or day-over-day items in its report format and does not call this script, so add them to the contract if you use it (usage at the top of the file; messages are in Japanese) |
+| `tests/check_report_cases/` | Nine regression cases for check_report.py (cases.tsv, a README and nine sample reports, in Japanese). Not used in daily operations |
 | `LICENSE` | MIT |
 
 ## The daily loop (summary of CLAUDE.md)
@@ -68,7 +70,7 @@ How the agent behaves if those lines are left in without the files has not been 
 
 | Form | What it is | Where (direct links) |
 |---|---|---|
-| Free (this repository) | 11 files: the operating contract, the hook, the daily-ops skill, a note on memory, plan and ledger templates, and a test record. Free under the MIT License | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
+| Free (this repository) | 23 files (11 of them are test cases for the report check): the operating contract, the hook, the daily-ops skill, a note on memory, plan and ledger templates, a test record, and a report check script (check_report.py). Free under the MIT License | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
 | Book (Japanese): 『AIコーディングエージェントを自走させる設定術』 | The approach of replacing repeated instructions with settings, as one book. It covers seven places for settings (contract, hook, skills, check scripts, ledger, memory, task sheet) with an example project and the author's own records. The example is a fictional solo app released once a month; the book writes 11 files for it, including three skills and two check scripts, shown in full or in part (separate from the kit's files). Chapter titles are listed below | Kindle (Amazon Japan) https://www.amazon.co.jp/dp/B0HNCWSHSM |
 | Full kit (自走キット v1, Japanese) | 26 files: the seven files shared with this repository (four of them with v1.5 text), plus the ledger and numbers-image skill, length and banned-word checks for posts, format checks for the ledger, task sheets and reports, five prompts, a guide with legal checks and a record of failures, and a test log | note (zip of v1.5 attached) https://note.com/kaiyaku_iyada/n/n899d771ef222 / Brain (approved text: v1.4; the v1.5 text has not been approved yet) https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY . Which version you get: see "Differences from the paid kit" |
 

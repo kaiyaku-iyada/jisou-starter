@@ -13,6 +13,8 @@ AIコーディングエージェント（Claude Code で動作確認）にプロ
 - memory/README.md … 長期プロジェクトの記憶の型
 - templates/ … 計画書と台帳の型
 - VERIFICATION.md … 検証の記録（日付・版・合格数/項目数・落ちた項目。実物のセッションと予行を分けて記載）
+- scripts/check_report.py … 人間への報告の長さ（空白・改行を除いて600字以内）・見出し・前日比・パスを確かめる検査。キット v1.5 と同じ中身（冒頭の1行のほか）。このリポジトリの CLAUDE.md の「報告の型」には600字と前日比の4項目が無く、毎日のループからも呼ばないので、使うときは契約書に書き足す（使い方はファイルの冒頭）
+- tests/check_report_cases/ … check_report.py の回帰テスト9件（cases.tsv・説明の README.md・報告の例9つ）。運用では使わない
 
 ## 使い方
 1. 新しいフォルダに git clone する（例: `git clone https://github.com/kaiyaku-iyada/jisou-starter.git my-project`）。CLAUDE.md は、下の「同梱していないもの」の行のほかは書き換えずに使う
@@ -37,7 +39,7 @@ CLAUDE.md と templates/README.md が触れる次のファイルは、このリ�
 
 | 形 | 中身 | 置き場所（直リンク） |
 |---|---|---|
-| 無料版（このリポジトリ） | 11ファイル。運用契約・フック・daily-ops スキル・記憶の書き方・計画書と台帳の型・検証の記録など。MIT License で無料 | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
+| 無料版（このリポジトリ） | 23ファイル（うち11は報告の検査の回帰テストの例）。運用契約・フック・daily-ops スキル・記憶の書き方・計画書と台帳の型・検証の記録・報告の検査 check_report.py など。MIT License で無料 | GitHub https://github.com/kaiyaku-iyada/jisou-starter |
 | 本『AIコーディングエージェントを自走させる設定術』 | 毎回の指示を設定に置き換える考え方を1冊にしたもの。7つの置き場所（契約書・フック・スキル・検査スクリプト・台帳・記憶・指示書）を、例題と著者の挑戦の記録で説明。例題は架空の「月1リリースの個人アプリ」で、スキル3本・検査スクリプト2本を含む11ファイルを書き下ろし、本文に全文か抜粋を掲載（一式のファイルとは別）。章の題は下 | Kindle https://www.amazon.co.jp/dp/B0HNCWSHSM |
 | 一式（自走キット v1） | 26ファイル。無料版と共通の7ファイル（うち4つは v1.5 で文が変わった）に、台帳と数字画像のスキル、投稿の文字数と禁止語のチェック、台帳・指示書・報告の書式のチェック、プロンプト5本、法律チェックと失敗の記録つきの手引き、動作確認の記録など | note（v1.5 の zip を添付）https://note.com/kaiyaku_iyada/n/n899d771ef222 ／ Brain（承認済みは v1.4。v1.5 の文はまだ承認されていない）https://brain-market.com/u/kaiyaku_iyada/a/b2EzMwcjMgoTZsNWa0JXY 。届く版は下の「有料版との違い」 |
 

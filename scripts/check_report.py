@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# MIT License（このリポジトリの LICENSE）。自走スターター（自走キットの無料版）に置く写しで、中身はキット v1.5 の下書きの scripts/check_report.py と同じ。
+# MIT License（このリポジトリの LICENSE）。自走スターター（自走キットの無料版）に置く写しで、この行のほかは、2026-10-22 の時点のキット v1.5 の下書きと配布前の jisou-kit-v1.5.zip の scripts/check_report.py と同じ。下の「作者のテストは配布物に入れていない」は有料版の配布物のことで、このリポジトリには tests/check_report_cases/ に9件を入れた。
 """人間への報告の文を、CLAUDE.md の「報告の型」の長さ・見出し・前日比と、報告に書くパスで確かめる。
 使い方: python3 scripts/check_report.py <<'EOF'
         （報告の全文）
