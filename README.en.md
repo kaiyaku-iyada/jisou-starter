@@ -50,7 +50,7 @@ Requirements: macOS (checked) or Linux (not checked), bash, python3, git, and Cl
 
 ### Not included (and where to find it)
 
-`CLAUDE.md` and `templates/README.md` mention the files below, which are not in this repository. The full kit includes all of them. The book shows files with the same roles, written for its example project (their names and contents differ from the kit's files).
+`CLAUDE.md` and `templates/README.md` mention the files below, which are not in this repository. The full kit (the paid kit) and the book are listed under "Three forms" below. The full kit includes all of them. The book shows files with the same roles, written for its example project (their names and contents differ from the kit's files).
 
 | File | Mentioned in | Full kit | Book (Japanese) |
 |---|---|---|---|
