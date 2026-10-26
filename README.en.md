@@ -156,7 +156,7 @@ The paid kit (自走キット v1, 26 files, in Japanese) includes the seven shar
 - `GUIDE.md`: setup, the human's daily routine, notes on model limits, known issues, a checklist for selling anonymously under Japanese law (general information, not legal advice), seven failures that actually happened, FAQ, changelog
 - `TESTLOG.md`: the commands that were run, their results, and what remains unchecked
 
-Versions: the note edition (zip attached to the article) is v1.5 (the zip was replaced on 2026-10-26). The approved text of the Brain edition (all files in the article text) is v1.4 (switched to the v1.4 text on 2026-10-18 and submitted for re-review; its approval was confirmed on 2026-10-23); the v1.5 text has not been approved on Brain yet, and its approval will be posted on the guide page once confirmed. You do not need both.
+Versions: the note edition (zip attached to the article) is v1.5 (the zip was replaced on 2026-10-26). The approved text of the Brain edition (all files in the article text) is v1.4 (switched to the v1.4 text on 2026-10-18 and submitted for re-review; its approval was confirmed on 2026-10-23); the v1.5 text has not been approved on Brain yet (it was submitted for re-review on 2026-10-26; the result is not confirmed), and its approval will be posted on the guide page once confirmed. You do not need both.
 
 v1.5 (26 files) contains the fixes from the checks above: eight files changed from v1.4, and three format checks were added. The seven shared files in this repository are still the same as in v1.4 (they are v1.3; they did not change in v1.4). v1.5 changed four of them (CLAUDE.md, the daily-ops skill, scripts/session-start.sh and templates/README.md), and those changes are not in this repository yet.
 
