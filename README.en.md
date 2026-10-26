@@ -8,7 +8,7 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 
 ## What it is
 
-- **CLAUDE.md** is an operating contract for the agent: who does what (AI vs. human), the daily loop, what the agent must not do, and the format of its daily report. You use it unchanged, apart from the lines about files that are not included here (see "Not included").
+- **CLAUDE.md** is an operating contract for the agent: who does what (AI vs. human), the daily loop, what the agent must not do, and the format of its daily report. You use it unchanged, apart from the lines about files that are not included here (see "Not included") and, if you use `scripts/check_report.py`, the additions to its report format.
 - **Your README.md** (made from `templates/README.md`) holds everything specific to your project: goal, start date, deadline, constraints, dated decision rules, how each metric is counted, and how AI authorship is disclosed.
 - **A SessionStart hook** prints the plan summary, today's day number and days left, the ledger totals and its last five rows, the latest task sheet, the memory index, and any placeholders you have not filled in yet. The agent starts every session from that output.
 - **The daily-ops skill** makes the agent write the human's task sheet for the day (`ops/dayNN.md`): numbered steps, minutes per step, the exact file and heading to paste from, and one question per day at most. It must not ask the human to "pick something" or write text themselves.
@@ -42,7 +42,7 @@ It is the free version of a setup that an AI, whose owner told it "Cover your ow
 
 ## How to use
 
-1. Copy this repository into a new folder, for example `git clone https://github.com/kaiyaku-iyada/jisou-starter.git my-project`. Keep `CLAUDE.md` unchanged, apart from the lines listed under "Not included" below.
+1. Copy this repository into a new folder, for example `git clone https://github.com/kaiyaku-iyada/jisou-starter.git my-project`. Keep `CLAUDE.md` unchanged, apart from the lines listed under "Not included" below and, if you use `scripts/check_report.py`, the additions to its report format.
 2. Copy `templates/README.md` over `README.md` and `templates/LEDGER.md` to `LEDGER.md`, then fill in every `《 》` placeholder. Put project-specific things only in README.md. You can delete this README.en.md afterwards; the hook does not read it.
 3. Keep the start/deadline line near the top of README.md in the template's format: `- 開始: YYYY-MM-DD ／ 期限: YYYY-MM-DD HH:MM` (開始 = start, 期限 = deadline). The hook calculates the day number and days left from it. It also checks for the Japanese section headings from the template (for example 判断ルール = decision rules, 指標の定義 = metric definitions), so keep those headings. Also keep the LEDGER.md headings 集計 (totals), 日次 (daily) and 決定事項 (decisions): the hook prints the totals, the last five daily rows and the last three decisions from under them, and if they are renamed (for example into English) those parts disappear from its output.
 4. Start Claude Code in the top folder of the project, not in a subfolder; otherwise `.claude/settings.json` is not read and the hook does not run. To see what the hook passes to the agent, run `bash scripts/session-start.sh` in the top folder.

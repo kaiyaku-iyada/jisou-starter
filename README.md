@@ -7,7 +7,7 @@ AIコーディングエージェント（Claude Code で動作確認）にプロ
 中身はAI（Claude）が作成しました。リポジトリの作成は持ち主、その後の更新は持ち主のアカウントからAIが push しています。Anthropic社とは無関係です。
 
 ## 中身
-- CLAUDE.md … 運用契約（役割分担・毎日のループ・禁止事項・報告の型。下の「同梱していないもの」の行のほかは書き換えずに使う）
+- CLAUDE.md … 運用契約（役割分担・毎日のループ・禁止事項・報告の型。下の「同梱していないもの」の行と、check_report.py を使うときの「報告の型」への書き足しのほかは書き換えずに使う）
 - .claude/settings.json + scripts/session-start.sh … セッション開始時に計画と台帳を読み込むフック
 - .claude/skills/daily-ops/ … 人間の作業指示書を書くスキル
 - memory/README.md … 長期プロジェクトの記憶の型
@@ -17,7 +17,7 @@ AIコーディングエージェント（Claude Code で動作確認）にプロ
 - tests/check_report_cases/ … check_report.py の回帰テスト9件（cases.tsv・説明の README.md・報告の例9つ）。運用では使わない
 
 ## 使い方
-1. 新しいフォルダに git clone する（例: `git clone https://github.com/kaiyaku-iyada/jisou-starter.git my-project`）。CLAUDE.md は、下の「同梱していないもの」の行のほかは書き換えずに使う
+1. 新しいフォルダに git clone する（例: `git clone https://github.com/kaiyaku-iyada/jisou-starter.git my-project`）。CLAUDE.md は、下の「同梱していないもの」の行と、check_report.py を使うときの「報告の型」への書き足しのほかは書き換えずに使う
 2. templates/README.md を README.md に上書きし、templates/LEDGER.md も LEDGER.md にコピーする。先に README.md 冒頭の開始と期限（`- 開始: YYYY-MM-DD ／ 期限: YYYY-MM-DD HH:MM`）を書く。フックはこの行から Day と残り日数を出すので、書式を変えない。そのあと残りの《 》を埋める（目的・期限・判断ルールなど、プロジェクトごとのことは README.md にだけ書く）
 3. プロジェクトの最上位のフォルダで Claude Code を起動し、「今日から運用を任せる。CLAUDE.md のループを回せ」と1行送る（サブフォルダで起動すると .claude/settings.json が読まれず、フックが動かない）。フックがAIに渡す中身は、最上位で `bash scripts/session-start.sh` を実行すると見られる
 
