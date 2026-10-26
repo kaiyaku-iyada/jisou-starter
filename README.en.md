@@ -154,7 +154,7 @@ Not checked yet:
 The paid kit (自走キット v1, 26 files, in Japanese) includes the seven shared files (it has its own terms of use instead of the MIT license), plus:
 
 - two more skills: `ledger` (updates the ledger and makes a numbers image) and `post-draft` (keeps the writing style and checks length and banned words)
-- six scripts: `xweight.py` (weighted character count for X's free tier), `lint.py` (banned-word check for product copy; the default list targets Japanese consumer-law wording), `scoreboard.py` (renders a 1200×675 image of days left and numbers with headless Chrome), and three added in v1.5: `check_ledger.py` (ledger format), `check_ops.py` (task sheet format) and `check_report.py` (report length, headings, day-over-day items and paths)
+- six scripts: `xweight.py` (weighted character count for X's free tier), `lint.py` (banned-word check for product copy; the default list targets Japanese consumer-law wording), `scoreboard.py` (renders a 1200×675 image of days left and numbers with headless Chrome), and three added in v1.5: `check_ledger.py` (ledger format), `check_ops.py` (task sheet format) and `check_report.py` (report length, headings, day-over-day items and paths; also in this repository)
 - five prompts that were used in the author's own project, a first-day task sheet template, and a memory index with a goal-note template
 - `GUIDE.md`: setup, the human's daily routine, notes on model limits, known issues, a checklist for selling anonymously under Japanese law (general information, not legal advice), seven failures that actually happened, FAQ, changelog
 - `TESTLOG.md`: the commands that were run, their results, and what remains unchecked
