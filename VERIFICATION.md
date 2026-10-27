@@ -2,7 +2,7 @@
 
 記録の範囲: 2026-10-17〜2026-10-26
 
-対象は有料版（自走キット）。このリポジトリの7ファイル（CLAUDE.md・.claude/settings.json・scripts/session-start.sh・.claude/skills/daily-ops/SKILL.md・memory/README.md・templates/README.md・templates/LEDGER.md）は、有料版の v1.4 と同じ中身（うち CLAUDE.md・scripts/session-start.sh・daily-ops・templates/README.md の4つは、v1.5 で文が変わった）。v1.5 は 2026-10-26 から note で届く。Brain は、2026-10-26 に再審査を申請した v1.5 の文の承認の通知を 2026-10-27 に確かめた（承認の時刻は分からない）。2026-10-27 の夜に、出品文の無料部分の古くなった所を直し、有料部分の冒頭に注記を足して、もう一度再審査を申請し、結果は未確認（有料部分の26ファイルの全文は変えていない）。
+対象は有料版（自走キット）。このリポジトリの7ファイル（CLAUDE.md・.claude/settings.json・scripts/session-start.sh・.claude/skills/daily-ops/SKILL.md・memory/README.md・templates/README.md・templates/LEDGER.md）は、有料版の v1.4 と同じ中身（うち CLAUDE.md・scripts/session-start.sh・daily-ops・templates/README.md の4つは、v1.5 で文が変わった）。v1.5 は 2026-10-26 から note で届く。Brain は、2026-10-26 に再審査を申請した v1.5 の文の承認の通知を 2026-10-27 に確かめた（承認の時刻は分からない）。2026-10-27 の夜に、出品文の無料部分の古くなった所を直し、有料部分の冒頭に注記を足して、もう一度再審査を申請し、承認の通知を 2026-10-28 の朝に確かめた（有料部分の26ファイルの全文は変えていない）。
 予行と実物のセッションは、どの回も架空の計画で回した（v1.5 の固定版の行と、10/25〜10/26 の Sonnet の行のほかは、14日で技術同人誌を1冊出す計画）。
 
 ## 実物のセッション
